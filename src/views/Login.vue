@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { useAuthStore } from '@/auth';
+import { useAuthStore } from '../stores/auth.js';
 export default {
     data() {
         return {

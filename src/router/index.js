@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import { useAuthStore } from '../auth.js';
+import { useAuthStore } from '../stores/auth.js';
 import Songs from '../views/Songs.vue';
 import Login from '../views/Login.vue';
 import Album from '../views/Album.vue';
@@ -33,12 +33,11 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (!useAuthStore().is_authenticated && to.path !== '/login') {
-        next('/login');
-    }else if(useAuthStore().is_authenticated && to.path === '/login'){
-        next(from);
-    }else{
-        next();
+      next('/login');
+    } else if (useAuthStore().is_authenticated && to.path === '/login') {
+      next(from);
+    } else {
+      next();
     }
-});
-
+  });
 export default router

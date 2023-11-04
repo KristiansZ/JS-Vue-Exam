@@ -41,7 +41,7 @@
 </template>
   
 <script>
-import { useAuthStore } from '../auth.js';
+import { useAuthStore } from '../stores/auth.js';
 import songData from '../data/songs.js';
 
 export default {

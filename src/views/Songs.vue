@@ -48,10 +48,10 @@
                 <!-- Loop goes on this <tr> element -->
                 <tr class="song" v-for="(song, index) in processedSongs" :key="index" v-on:dblclick="selectSong(song)" :class="{ 'active': pStore.getNowPlayingSongId === song.id }">
                     <td id="td-index">
-                        <IconPlay color= "var(--c-accent-secondary)" v-show="this.pStore.getNowPlayingSongId === song.id"/>
+                        <IconPlay v-show="this.pStore.getNowPlayingSongId === song.id"/>
                         <span id="txt-index" v-text="index+1" v-show="this.pStore.getNowPlayingSongId !== song.id"></span>
                     </td>
-                    <td id="td-title" :style="{ color: this.pStore.getNowPlayingSongId === song.id ? 'var(--c-accent-secondary)' : 'white' }">
+                    <td id="td-title">
                         <img :src="song.album.images[0].url" />
                         {{song.name}}
                     </td>
@@ -67,7 +67,7 @@
     </div>
 </template>
 <script>
-import { useAuthStore } from '../auth.js';
+import { useAuthStore } from '../stores/auth.js';
 import songData from '../data/songs.js';
 import { usePlayerStore } from '../stores/player.js';
 import IconCaretUp from '../components/icons/IconCaretUp.vue';

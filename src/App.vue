@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import { useAuthStore } from '@/auth.js';
+    import { useAuthStore } from './stores/auth.js';
 
     export default {
         computed: {
